@@ -2,18 +2,14 @@ package battlegame;
 
 public class Hero {
 	private String name;
-	//private int maxHealth;
 	private int health;
 	private int attackDamage;
-	private int maxMP;
 	private int MP;
 
 	public Hero(String name, int health, int attackDamage, int maxMP) {
 		this.name = name;
-		//this.maxHealth = maxHealth;
 		this.health = health;
 		this.attackDamage = attackDamage;
-		this.maxMP = maxMP;
 		this.MP = maxMP;
 	}
 

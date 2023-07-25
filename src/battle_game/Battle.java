@@ -1,6 +1,7 @@
 package battlegame;
 
 public class Battle {
+
 	public static void main(String[] args) {
 
 		java.util.Scanner scanner = new java.util.Scanner(System.in);
@@ -17,8 +18,7 @@ public class Battle {
 		System.out.println("入力⇒");
 
 		//入力値を格納
-		int choice = scanner.nextInt();
-		scanner.close();
+		int choice = new java.util.Scanner(System.in).nextInt();
 		System.out.println("\n");
 
 		//Monsterクラスからインスタンス生成
@@ -51,8 +51,7 @@ public class Battle {
 				System.out.println("1. 物理攻撃");
 				System.out.println("2. 魔法攻撃\n");
 				System.out.print("コマンド入力⇒");
-				String playerChoice = scanner.nextLine();
-				scanner.close();
+				String playerChoice = new java.util.Scanner(System.in).nextLine();
 				System.out.print("\n");
 
 				//checkStringメソッドを呼び出して、入力コマンドに文字列が含まれていないかチェックする
@@ -66,21 +65,25 @@ public class Battle {
 						hero.physicalAttack(enemyMonster);
 						System.out.print(hero.getName() + "の物理攻撃");
 						System.out.println(enemyMonster.getName() + "に" + hero.getAttackDamage() + "のダメージ！\n");
+						break;
 					} else if (executionCommand == 2) {
 						hero.magicAttack(enemyMonster);
 						System.out.print(hero.getName() + "の魔法攻撃");
 						System.out.println(enemyMonster.getName() + "に" + (2 * hero.getAttackDamage()) + "のダメージ！\n");
+						break;
 					} else {
 						System.out.println("入力コマンドが誤っています。再度入力してください。\n");
 					}
 				} else {
 					System.out.println("入力コマンドが誤っています。再度入力してください。\n");
 				}
-				if (!enemyMonster.isAlive()) {
-					System.out.println(enemyMonster.getName() + "を倒した！");
-					break;
-				}
+
 			} while (true);
+
+			if (!enemyMonster.isAlive()) {
+				System.out.println(enemyMonster.getName() + "を倒した！");
+				break;
+			}
 
 			// 敵のターン
 			System.out.println(enemyMonster.getName() + "のターン");
@@ -114,5 +117,4 @@ public class Battle {
 		}
 		return checkStringRes;
 	}
-
 }
