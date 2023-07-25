@@ -18,7 +18,7 @@ public class Battle {
 		System.out.println("入力⇒");
 
 		//入力値を格納
-		int choice = new java.util.Scanner(System.in).nextInt();
+		int choice = scanner.nextInt();
 		System.out.println("\n");
 
 		//Monsterクラスからインスタンス生成
@@ -51,7 +51,7 @@ public class Battle {
 				System.out.println("1. 物理攻撃");
 				System.out.println("2. 魔法攻撃\n");
 				System.out.print("コマンド入力⇒");
-				String playerChoice = new java.util.Scanner(System.in).nextLine();
+				String playerChoice = scanner.nextLine();
 				System.out.print("\n");
 
 				//checkStringメソッドを呼び出して、入力コマンドに文字列が含まれていないかチェックする
@@ -96,7 +96,7 @@ public class Battle {
 			}
 
 		}
-
+		scanner.close();
 		System.out.println("バトル終了！");
 	}
 
